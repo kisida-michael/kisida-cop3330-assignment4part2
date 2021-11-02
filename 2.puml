@@ -1,0 +1,48 @@
+@startuml
+class ucf.assignments.SaveData {
++ void save()
+}
+class ucf.assignments.Functions {
+~ void testRemoveTask()
+~ void testcompleteTask()
+~ void testAdddTask()
+}
+class ucf.assignments.Controller {
+- TextField PriorityField
+- Button btnAdd
+- Button btnAll
+- Button btnComplete
+- Button btnCreateList
+- Button btnDashboard
+- Button btnDelete
+- Button btnDone
+- Button btnEdit
+- Button btnToday1
+- DatePicker dateField
+- TextField newTask
+- VBox pnItems
+- Pane pnlIncomplete
+- Pane pnlList
+- ListView<?> list
+- Pane pnlOverview
+- Pane pnlTasks
+- Text taskSample
+~ void newList()
+~ void deleteList()
+~ void editListTitle()
+~ void addTask()
+~ void markComplete(ActionEvent)
+~ void deleteTask(ActionEvent)
+~ void viewCompleted()
+~ void viewInCompleted()
+}
+class ucf.assignments.App {
++ void start(Stage)
++ {static} void main(String[])
+}
+class ucf.assignments.AppData {
+}
+
+
+javafx.application.Application <|-- ucf.assignments.App
+@enduml

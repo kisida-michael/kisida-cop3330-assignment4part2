@@ -1,0 +1,36 @@
+@startuml
+class ucf.assignments.Controller {
+- TextField PriorityField
+- Button btnAdd
+- Button btnAll
+- Button btnComplete
+- Button btnCreateList
+- Button btnDashboard
+- Button btnDelete
+- Button btnDone
+- Button btnEdit
+- Button btnToday1
+- DatePicker dateField
+- TextField newTask
+- VBox pnItems
+- Pane pnlIncomplete
+- Pane pnlList
+- Pane pnlOverview
+- Pane pnlTasks
+- Text taskSample
+~ void newList()
+~ void deleteList()
+~ void editListTitle()
+~ void addTask()
+}
+class ucf.assignments.App {
++ void start(Stage)
++ {static} void main(String[])
+}
+class ucf.assignments.ToDoTask {
++ void newList()
+}
+
+
+javafx.application.Application <|-- ucf.assignments.App
+@enduml
