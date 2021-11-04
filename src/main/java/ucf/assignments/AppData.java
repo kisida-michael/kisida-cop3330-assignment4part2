@@ -1,22 +1,22 @@
 package ucf.assignments;
 
 public class AppData {
-/*
-    private ArrayList<TodoTask> list;
-    private ArrayList<TodoTask> listDone;
 
-    public AppData(ArrayList<TodoTask> list, ArrayList<TodoTask> listDone)
+/*    private ArrayList<Todo> list;
+    private ArrayList<Todo> listDone;
+
+    public AppData(ArrayList<Todo> list, ArrayList<Todo> listDone)
     {
         this.list = list;
         this.listDone = listDone;
     }
 
-    public ArrayList<TodoTask> getList()
+    public ArrayList<Todo> getList()
     {
         return list;
     }
 
-    public ArrayList<TodoTask> getListDone()
+    public ArrayList<Todo> getListDone()
     {
         return listDone;
     }

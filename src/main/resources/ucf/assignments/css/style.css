@@ -97,3 +97,6 @@
     -fx-border-width: 1.2;
 
 }
+.list-view:selected{
+    -fx-background-color: #446db9;
+}
