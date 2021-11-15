@@ -15,7 +15,7 @@
 .button2
 {
     -fx-border-color: #e14646;
-    -fx-background-color : #F9F9F9;
+    -fx-background-color : #efeff8;
     -fx-text-fill : #02030A;
     -fx-background-radius: 2em;
     -fx-border-radius: 2em;
@@ -31,6 +31,29 @@
 .button2:pressed
 {
     -fx-background-color : #812c2c;
+    -fx-text-fill : #ffffff;
+    -fx-background-radius: 2em;
+    -fx-border-radius: 2em;
+}
+.button4
+{
+    -fx-border-color: #26bfbc;
+    -fx-background-color : #efeff8;
+    -fx-text-fill : #02030A;
+    -fx-background-radius: 2em;
+    -fx-border-radius: 2em;
+    -fx-border-width: 2;
+}
+.button4:hover{
+
+    -fx-background-color : #26bfbc;
+    -fx-text-fill : #ffffff;
+    -fx-background-radius: 2em;
+    -fx-border-radius: 2em;
+}
+.button4:pressed
+{
+    -fx-background-color : #168180;
     -fx-text-fill : #ffffff;
     -fx-background-radius: 2em;
     -fx-border-radius: 2em;
@@ -99,4 +122,75 @@
 }
 .list-view:selected{
     -fx-background-color: #446db9;
+}
+.table-view .table-row-cell {
+    -fx-border-color: derive(-fx-base, 20%);
+    -fx-background-insets: 0 0 0 0;
+    -fx-table-cell-border-color: transparent;
+}
+.table-view .column-header,
+
+.table-view .column-header-background .filler {
+
+    -fx-cell-size : 20;
+    -fx-background-color:   #446db9;
+}
+.table-view .column-header, .table-view .filler {
+
+    -fx-size : 40;
+
+}
+
+.table-view .column-header .label{
+
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-family: "ui-serif";
+    -fx-alignment: CENTER-LEFT;
+}
+.table-view .cell{
+    -fx-cell-size: 30;
+    -fx-alignment: center-left;
+    -fx-text-fill: #000000;
+}
+
+
+.table-row-cell:selected {
+    -fx-background-color: #26BFBCFF;
+    -fx-border-color: #26BFBCFF;
+}
+
+.table-row-cell:selected .text {
+    -fx-fill : white ;
+
+}
+/* scroll bar starts here */
+
+
+.table-view .increment-button ,.table-view .decrement-button {
+    -fx-background-color:transparent;
+    -fx-background-radius: 2em;
+
+}
+
+
+.table-view .scroll-bar:horizontal .track,
+.table-view .scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color:derive(   #446db9,80%);
+    -fx-background-radius: 2em;
+    -fx-border-radius:2em;
+}
+
+
+.table-view .scroll-bar:horizontal .thumb,
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color: derive( #446db9, 90%);
+    -fx-background-insets: 2, 0, 0;
+    -fx-background-radius: 2em;
+}
+
+.table-view .table-row-cell {
+    -fx-control-inner-background: #F9F9F9;
+    -fx-control-inner-background-alt:#F9F9F9;
 }

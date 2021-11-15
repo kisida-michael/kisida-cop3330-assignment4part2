@@ -1,15 +1,34 @@
 package ucf.assignments;
 
-public class SaveData {
-    public void save(){
-/*
-* ArrayList<TodoTask> list1 = (ArrayList<TodoTask>) list.stream().collect(Collectors.toList());
-        	ArrayList<TodoTask> list2 = (ArrayList<TodoTask>) listDone.stream().collect(Collectors.toList());
+import java.io.Serializable;
+import java.util.ArrayList;
 
-            AppData data = new AppData(list1, list2);
+@SuppressWarnings("serial")
+public class SaveData implements Serializable
+{
+    private ArrayList<Task> list;
+    private ArrayList<Task> listCompleted;
+    private ArrayList<Task> listIncompleted;
 
-            ops = new FileOutputStream("appData.txt");
-            objOps = new ObjectOutputStream(ops);
-            objOps.writeObject(data);*/
+    public SaveData(ArrayList<Task> list, ArrayList<Task> listCompleted, ArrayList<Task>listIncompleted)
+    {
+        this.list = list;
+        this.listCompleted = listCompleted;
+        this.listIncompleted = listIncompleted;
+    }
+
+    public ArrayList<Task> getList()
+    {
+        return list;
+    }
+
+    public ArrayList<Task> getListCompleted()
+    {
+        return listCompleted;
+    }
+
+    public ArrayList<Task> getListIncompleted()
+    {
+        return listIncompleted;
     }
 }

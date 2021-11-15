@@ -1,34 +1,71 @@
 @startuml
+class ucf.assignments.SaveData {
++ void save()
+}
+class ucf.assignments.Task {
+- String Task
+- String Description
+- String DueDate
+- String Priority
++ String getTask()
++ void setTask(String)
++ String getDescription()
++ void setDescription(String)
++ String getDueDate()
++ void setDueDate(String)
++ String getPriority()
++ void setPriority(String)
+}
+class ucf.assignments.App {
+~ double x
++ void start(Stage)
++ {static} void main(String[])
+}
 class ucf.assignments.Controller {
 - TextField PriorityField
 - Button btnAdd
-- Button btnAll
 - Button btnComplete
 - Button btnCreateList
 - Button btnDashboard
 - Button btnDelete
 - Button btnDone
 - Button btnEdit
+- Button btnLoad
+- Button btnSave
+- Button btnRemove
 - Button btnToday1
+- ListView completeList
+- ListView dashboardList
 - DatePicker dateField
+- ListView incompleteList
 - TextField newTask
-- VBox pnItems
+- TextField descriptionField
+- Pane pnlComplete
 - Pane pnlIncomplete
-- Pane pnlList
 - Pane pnlOverview
-- Pane pnlTasks
-- Text taskSample
-~ void newList()
-~ void deleteList()
-~ void editListTitle()
-~ void addTask()
-}
-class ucf.assignments.App {
-+ void start(Stage)
-+ {static} void main(String[])
-}
-class ucf.assignments.ToDoTask {
-+ void newList()
+- TableView<Task> todoListTbl
+- TableColumn<Task,Task> tcTask
+- TableColumn<Task,String> tcDescription
+- TableColumn<Task,String> tcDueDate
+- TableColumn<Task,String> tcPriority
+- ObservableList<Task> dashboardTbl
+- ObservableList<Task> incompleteTbl
+- ObservableList<Task> completeTbl
+~ String task
+~ String description
+~ String dueDate
+~ String priority
+~ void completePane(MouseEvent)
+~ void dashboardPane(MouseEvent)
+~ void incompletePane(MouseEvent)
+~ void addTask(MouseEvent)
+~ void clearFields()
+~ void editTask(MouseEvent)
+~ void deleteTask(MouseEvent)
+~ void editConfirm()
+~ void handleButtonClick(ActionEvent)
+~ void removeList(MouseEvent)
++ void initialize()
 }
 
 
