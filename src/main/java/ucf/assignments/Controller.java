@@ -3,9 +3,11 @@ package ucf.assignments;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
@@ -13,8 +15,8 @@ import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 public class Controller  {
@@ -62,16 +64,7 @@ public class Controller  {
     private Label totalTasksWidget;
 
     @FXML
-    private ListView completeList;
-
-    @FXML
-    private ListView dashboardList;
-
-    @FXML
     private DatePicker dateField;
-
-    @FXML
-    private ListView incompleteList;
 
     @FXML
     private TextField newTask;
@@ -95,35 +88,33 @@ public class Controller  {
     private TableView<Task> todoListTbl;
 
     @FXML
-    private TableColumn<Task, Task> tcTask;
+    private TableColumn tcTask;
 
     @FXML
-    private TableColumn<Task, String> tcDescription;
+    private TableColumn tcDescription;
 
     @FXML
-    private TableColumn<Task, String> tcDueDate;
+    private TableColumn tcDueDate;
 
     @FXML
-    private TableColumn<Task, String> tcPriority;
+    private TableColumn tcPriority;
 
     @FXML
-    private TableColumn<Task, Task> iTask;
+    private TableColumn iTask;
 
     @FXML
-    private TableColumn<Task, String> iDescription;
+    private TableColumn iDescription;
 
     @FXML
-    private TableColumn<Task, String> iDueDate;
+    private TableColumn iDueDate;
 
     @FXML
-    private TableColumn<Task, String> iPriority;
+    private TableColumn iPriority;
 
 
     private ObservableList<Task> todoTasks = FXCollections.observableArrayList();
-    private ObservableList<Task> incompleteTasks = FXCollections.observableArrayList();;
-    private ObservableList<Task> completeTbl = FXCollections.observableArrayList();;
-
-
+    private ObservableList<Task> incompleteTasks = FXCollections.observableArrayList();
+    private ObservableList<Task> completeTbl = FXCollections.observableArrayList();
 
 
     @FXML
@@ -189,7 +180,7 @@ public class Controller  {
         PriorityField.setText(edit.getPriority());
         btnAdd.setDisable(true);
         btnDelete.setDisable(true);
-        
+
 
     }
     @FXML
@@ -201,7 +192,9 @@ public class Controller  {
     @FXML
     void refreshValues(){
         int totalTask =  todoListTbl.getItems().size();
+        int incompleteTask = incompletedTbl.getItems().size();
         totalTasksWidget.setText(String.valueOf(totalTask));
+        incompleteWidget.setText(String.valueOf(incompleteTask));
     }
     @FXML
     void editConfirm(){
@@ -243,9 +236,9 @@ public class Controller  {
           arrList.get(i).add(task.DueDate.get());
           arrList.get(i).add(task.Priority.get());
        }
-        for (int i = 0; i < arrList.size();  i++){
-            for (int j = 0; j < arrList.get(i).size(); j++){
-                System.out.print(","+arrList.get(i).get(j));
+        for (List<String> strings : arrList) {
+            for (String string : strings) {
+                System.out.print(string);
             }
         }
         try{
@@ -268,22 +261,44 @@ public class Controller  {
 
             ArrayList<Task> savedData = (ArrayList<Task>) readStream.readObject();
             readStream.close();
-            System.out.println(savedData.toString());
+            String list = Arrays.toString(savedData.toArray()).replace("[", "").replace("]", "");
+            System.out.print(list);
         }catch (Exception e) {
             e.printStackTrace();
         }
     }
-
+    @FXML
+    void setEditable(){
+        tcTask.setOnEditCommit(
+                (EventHandler<TableColumn.CellEditEvent<Task, String>>) t -> t.getTableView().getItems().get(
+                        t.getTablePosition().getRow()).setTask(t.getNewValue())
+        );
+        tcDescription.setOnEditCommit(
+                (EventHandler<TableColumn.CellEditEvent<Task, String>>) t -> t.getTableView().getItems().get(
+                        t.getTablePosition().getRow()).setDescription(t.getNewValue())
+        );
+        tcDueDate.setOnEditCommit(
+                (EventHandler<TableColumn.CellEditEvent<Task, String>>) t -> t.getTableView().getItems().get(
+                        t.getTablePosition().getRow()).setDueDate(t.getNewValue())
+        );
+    }
     public void initialize() {
        // System.out.println("Y");
+        todoListTbl.setEditable(true);
+        setEditable();
+        //todoListTbl.getSelectionModel().cellSelectionEnabledProperty().set(true);
         tcTask.setCellValueFactory(new PropertyValueFactory<>("Task"));
-        tcDescription.setCellValueFactory(new PropertyValueFactory<>("Description"));
+        tcDescription.setCellValueFactory(new PropertyValueFactory<Task, String>("Description"));
         tcDueDate.setCellValueFactory(new PropertyValueFactory<>("DueDate"));
         tcPriority.setCellValueFactory(new PropertyValueFactory<>("Priority"));
         iTask.setCellValueFactory(new PropertyValueFactory<>("Task"));
         iDescription.setCellValueFactory(new PropertyValueFactory<>("Description"));
         iDueDate.setCellValueFactory(new PropertyValueFactory<>("DueDate"));
         iPriority.setCellValueFactory(new PropertyValueFactory<>("Priority"));
+        tcTask.setCellFactory(TextFieldTableCell.forTableColumn());
+        tcDescription.setCellFactory(TextFieldTableCell.forTableColumn());
+        tcDueDate.setCellFactory(TextFieldTableCell.forTableColumn());
+
 
         //todoListTbl.setItems(dashboardTbl);
     }

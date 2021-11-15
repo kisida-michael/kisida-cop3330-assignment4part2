@@ -31,17 +31,17 @@
             </Label>
             <TableView fx:id="completedTbl" editable="true" layoutX="14.0" layoutY="68.0" prefHeight="487.0" prefWidth="859.0" stylesheets="@css/style.css">
                <columns>
-                  <TableColumn fx:id="tcTask1" prefWidth="150.0" text="  Task" />
-                  <TableColumn fx:id="tcDescription1" editable="false" prefWidth="300.0" text="Description" />
-                  <TableColumn fx:id="tcDueDate1" prefWidth="150.0" text="Due Date" />
-                  <TableColumn fx:id="tcPriority1" prefWidth="260.0" text="Priority" />
+                  <TableColumn fx:id="cTask" prefWidth="150.0" text="  Task" />
+                  <TableColumn fx:id="cDescription" editable="false" prefWidth="300.0" text="Description" />
+                  <TableColumn fx:id="cDueDate" prefWidth="150.0" text="Due Date" />
+                  <TableColumn fx:id="cPriority" prefWidth="260.0" text="Priority" />
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
          </children></Pane>
-      <Pane fx:id="pnlIncomplete" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: F9F9F9;">
+      <Pane fx:id="pnlIncomplete" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: F9F9F9;" visible="false">
          <children>
             <Label layoutX="17.0" layoutY="21.0" text="To Do List: Incompleted Tasks" textFill="#446db9">
                <font>
@@ -97,6 +97,11 @@
                      <Insets />
                   </HBox.margin>
                </Button>
+               <Button alignment="CENTER" mnemonicParsing="false" prefHeight="29.0" prefWidth="102.0" styleClass="button3" stylesheets="@css/style.css" text="Done">
+                  <HBox.margin>
+                     <Insets left="15.0" />
+                  </HBox.margin>
+               </Button>
             </children>
          </HBox>
          <Label fx:id="incompleteWidget" layoutX="63.0" layoutY="65.0" text="0" textFill="#446db9">
@@ -112,10 +117,10 @@
          </Label>
          <Label layoutX="26.0" layoutY="103.0" text="Incomplete Tasks" textFill="#808080" />
          <TextField fx:id="descriptionField" layoutX="260.0" layoutY="98.0" prefHeight="25.0" prefWidth="583.0" promptText="Add Task Description" styleClass="textField" stylesheets="@css/style.css" />
-         <TableView fx:id="todoListTbl" editable="true" layoutX="24.0" layoutY="185.0" prefHeight="381.0" prefWidth="859.0" stylesheets="@css/style.css">
+         <TableView fx:id="todoListTbl" editable="true" layoutX="22.0" layoutY="176.0" prefHeight="381.0" prefWidth="859.0" stylesheets="@css/style.css">
            <columns>
              <TableColumn fx:id="tcTask" prefWidth="150.0" text="  Task" />
-             <TableColumn fx:id="tcDescription" editable="false" prefWidth="300.0" text="Description" />
+             <TableColumn fx:id="tcDescription" prefWidth="300.0" text="Description" />
                <TableColumn fx:id="tcDueDate" prefWidth="150.0" text="Due Date" />
                <TableColumn fx:id="tcPriority" prefWidth="260.0" text="Priority" />
            </columns>
