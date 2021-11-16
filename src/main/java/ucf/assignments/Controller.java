@@ -29,110 +29,58 @@ public class Controller  {
 
     @FXML
     private TextField PriorityField;
-
     @FXML
     private Button btnAdd;
-
-    @FXML
-    private Button btnComplete;
-
-    @FXML
-    private Button btnCreateList;
-
-    @FXML
-    private Button btnDashboard;
-
     @FXML
     private Button btnDelete;
-
-    @FXML
-    private Button btnDone;
-
-    @FXML
-    private Button btnEdit;
-
-    @FXML
-    private Button btnLoad;
-
-    @FXML
-    private Button btnSave;
-
-    @FXML
-    private Button btnRemove;
-
-
     @FXML
     private Label incompleteWidget;
-
     @FXML
     private Label totalTasksWidget;
-
     @FXML
     private DatePicker dateField;
-
     @FXML
     private TextField newTask;
-
     @FXML
     private TextField descriptionField;
-
     @FXML
     private Pane pnlComplete;
-
     @FXML
     private Pane pnlIncomplete;
-
     @FXML
     private Text errorLabel;
-
     @FXML
     private Pane pnlOverview;
-
     @FXML
     private TableView<Task> incompletedTbl;
-
     @FXML
     private TableView<Task> todoListTbl;
-
     @FXML
     private TableView<Task> completedTbl;
-
     @FXML
     private TableColumn tcTask;
-
     @FXML
     private TableColumn tcDescription;
-
     @FXML
     private TableColumn tcDueDate;
-
     @FXML
     private TableColumn<Object, Object> tcPriority;
-
     @FXML
     private TableColumn<Object, Object> iTask;
-
     @FXML
     private TableColumn<Object, Object> iDescription;
-
     @FXML
     private TableColumn<Object, Object> iDueDate;
-
     @FXML
     private TableColumn<Object, Object> iPriority;
-
     @FXML
     private TableColumn<Object, Object> cTask;
-
     @FXML
     private TableColumn<Object, Object> cDescription;
-
     @FXML
     private TableColumn<Object, Object> cDueDate;
-
     @FXML
     private TableColumn<Object, Object> cPriority;
-
     @FXML
     private ScrollPane helpPane;
 

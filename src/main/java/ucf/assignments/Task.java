@@ -15,18 +15,18 @@ public class Task implements Serializable {
     protected SimpleStringProperty DueDate;
     protected SimpleStringProperty Priority;
 
-
+    // Sets the string values to SimpleString Properties
     public Task(String Task, String Description, String DueDate, String Priority) {
         this.Task = new SimpleStringProperty(Task);
         this.Description = new SimpleStringProperty(Description);
         this.DueDate = new SimpleStringProperty(DueDate);
         this.Priority = new SimpleStringProperty(Priority);
     }
-
+    // makeBlankTest for saving arrayList
     public Task() {
 
     }
-
+    // getsTask value
     public String getTask() {
         return Task.get();
     }
