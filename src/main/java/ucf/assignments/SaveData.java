@@ -1,34 +1,25 @@
+/*
+ *  UCF COP3330 Fall 2021 Assignment 4 Solution
+ *  Copyright 2021 Michael Kisida
+ */
 package ucf.assignments;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 @SuppressWarnings("serial")
-public class SaveData implements Serializable
-{
+public class SaveData implements Serializable {
     private ArrayList<Task> list;
-    private ArrayList<Task> listCompleted;
-    private ArrayList<Task> listIncompleted;
 
-    public SaveData(ArrayList<Task> list, ArrayList<Task> listCompleted, ArrayList<Task>listIncompleted)
-    {
+
+    public SaveData(ArrayList<Task> list) {
         this.list = list;
-        this.listCompleted = listCompleted;
-        this.listIncompleted = listIncompleted;
+
     }
 
-    public ArrayList<Task> getList()
-    {
+    public ArrayList<Task> getList() {
         return list;
     }
-
-    public ArrayList<Task> getListCompleted()
-    {
-        return listCompleted;
-    }
-
-    public ArrayList<Task> getListIncompleted()
-    {
-        return listIncompleted;
-    }
 }
+
+

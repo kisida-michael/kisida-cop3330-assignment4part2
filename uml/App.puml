@@ -1,12 +1,13 @@
 @startuml
 class ucf.assignments.SaveData {
-+ void save()
+- ArrayList<Task> list
++ ArrayList<Task> getList()
 }
 class ucf.assignments.Task {
-- String Task
-- String Description
-- String DueDate
-- String Priority
+# SimpleStringProperty Task
+# SimpleStringProperty Description
+# SimpleStringProperty DueDate
+# SimpleStringProperty Priority
 + String getTask()
 + void setTask(String)
 + String getDescription()
@@ -34,26 +35,30 @@ class ucf.assignments.Controller {
 - Button btnSave
 - Button btnRemove
 - Button btnToday1
-- ListView completeList
-- ListView dashboardList
+- Label incompleteWidget
+- Label totalTasksWidget
 - DatePicker dateField
-- ListView incompleteList
 - TextField newTask
 - TextField descriptionField
 - Pane pnlComplete
 - Pane pnlIncomplete
 - Pane pnlOverview
+- TableView<Task> incompletedTbl
 - TableView<Task> todoListTbl
-- TableColumn<Task,Task> tcTask
-- TableColumn<Task,String> tcDescription
-- TableColumn<Task,String> tcDueDate
-- TableColumn<Task,String> tcPriority
-- ObservableList<Task> dashboardTbl
-- ObservableList<Task> incompleteTbl
+- TableColumn tcTask
+- TableColumn tcDescription
+- TableColumn tcDueDate
+- TableColumn tcPriority
+- TableColumn iTask
+- TableColumn iDescription
+- TableColumn iDueDate
+- TableColumn iPriority
+- ObservableList<Task> todoTasks
+- ObservableList<Task> incompleteTasks
 - ObservableList<Task> completeTbl
 ~ String task
 ~ String description
-~ String dueDate
+~ String dueDateStr
 ~ String priority
 ~ void completePane(MouseEvent)
 ~ void dashboardPane(MouseEvent)
@@ -62,12 +67,18 @@ class ucf.assignments.Controller {
 ~ void clearFields()
 ~ void editTask(MouseEvent)
 ~ void deleteTask(MouseEvent)
+~ void refreshValues()
 ~ void editConfirm()
 ~ void handleButtonClick(ActionEvent)
 ~ void removeList(MouseEvent)
+~ void saveList(MouseEvent)
+~ void loadList(MouseEvent)
+~ void setEditable()
 + void initialize()
 }
 
 
+java.io.Serializable <|.. ucf.assignments.SaveData
+java.io.Serializable <|.. ucf.assignments.Task
 javafx.application.Application <|-- ucf.assignments.App
 @enduml
